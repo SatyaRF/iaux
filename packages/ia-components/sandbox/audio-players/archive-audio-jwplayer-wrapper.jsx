@@ -142,6 +142,8 @@ class ArchiveAudioPlayer extends Component {
   }
 }
 
+ArchiveAudioPlayer.displayName = 'ArchiveAudioPlayer';
+
 ArchiveAudioPlayer.defaultProps = {
   backgroundPhoto: '',
   jwplayerID: '',

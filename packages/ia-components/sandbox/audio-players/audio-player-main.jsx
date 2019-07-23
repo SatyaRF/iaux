@@ -190,6 +190,8 @@ export default class TheatreAudioPlayer extends Component {
   }
 }
 
+TheatreAudioPlayer.displayName = 'TheatreAudioPlayer';
+
 TheatreAudioPlayer.defaultProps = {
   backgroundPhoto: '',
   photoAltTag: '',

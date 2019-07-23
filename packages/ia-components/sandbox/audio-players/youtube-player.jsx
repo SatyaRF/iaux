@@ -74,11 +74,11 @@ class YoutubePlayer extends Component {
    * Load video of passed id and default resolution
    */
   componentDidUpdate() {
-    const { id, player } = this.state;
+    const { id: stateID, player } = this.state;
     const { id: propsID } = this.props;
-    const idToUse = id || propsID;
+    const videoID = stateID || propsID;
 
-    player.loadVideoById(idToUse, 'default');
+    player.loadVideoById(videoID, 'default');
   }
 
   /**
@@ -98,13 +98,13 @@ class YoutubePlayer extends Component {
    * Update player
    */
   loadPlayer() {
-    const { id, playerAnchor } = this.state;
+    const { id: stateID, playerAnchor } = this.state;
     const { id: propsID } = this.props;
-    const idToUse = id || propsID;
+    const videoID = stateID || propsID;
     const player = new window.YT.Player(playerAnchor.current, {
       height: '600',
       width: '600',
-      videoId: idToUse,
+      videoId: videoID,
       playerVars: {
         fs: 1,
         rel: 0,
@@ -169,6 +169,8 @@ class YoutubePlayer extends Component {
     );
   }
 }
+
+YoutubePlayer.displayName = 'YouTube Player';
 
 YoutubePlayer.propTypes = {
   selectedTrack: PropTypes.number.isRequired,
